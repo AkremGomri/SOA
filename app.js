@@ -1,7 +1,7 @@
 const express = require('express');
 const https = require('https');
 const app = express();
-const {changer, result} = require('./outVoice');
+var {changer, result} = require('./outVoice');
 const cors = require('cors');
 const axios = require('axios')
 

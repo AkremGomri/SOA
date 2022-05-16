@@ -233,17 +233,15 @@ document.getElementById("btn").addEventListener("click", function() {
   };
 console.log("noteContent ", noteContent);
   const rawResponse =  fetch('http://localhost:8000/inVoice', options)
-    .then(data => console.log("dara: ",data))
+    .then(data => data.json())
+    .then(data => {
+      const audio = document.getElementById('blida');
+      
+      audio.src = data.url;
+      audio.play();
+    })
     .catch(err => console.log("err ",err));
   noteContent = "";
-
-  setTimeout(()=>{
-    
-    $('#blida').html('<source  src="../voices/Recording3.mp3" type="audio/mp3" />');
-    window.location = window.location.href+'?eraseCache=true';
-    $('#blida').html('<source  src="../voices/Recording3.mp3" type="audio/mp3" />');
-    // window.location.reload(true);
-  }, 1000)
 });
 
 document.getElementById("restart-btn").addEventListener("click", function() {
