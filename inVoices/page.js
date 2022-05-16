@@ -233,13 +233,15 @@ document.getElementById("btn").addEventListener("click", function() {
   };
 console.log("noteContent ", noteContent);
   const rawResponse =  fetch('http://localhost:8000/inVoice', options)
-    .then(data => console.log("dara: ",data))
+    .then(data => data.json())
+    .then(data => {
+      const audio = document.getElementById('blida');
+      
+      audio.src = data.url;
+      audio.play();
+    })
     .catch(err => console.log("err ",err));
   noteContent = "";
-
-  setTimeout(()=>{
-    window.location.reload(true);
-  }, 1000)
 });
 
 document.getElementById("restart-btn").addEventListener("click", function() {

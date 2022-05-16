@@ -1,7 +1,7 @@
 const express = require('express');
 const https = require('https');
 const app = express();
-const changer = require('./outVoice');
+var {changer, result} = require('./outVoice');
 const cors = require('cors');
 const axios = require('axios')
 
@@ -70,7 +70,8 @@ app.post('/inVoice', async (req, res) => {
         const response = await axios.get(url)
         if(response.data){
             whether = 'The weather in ' + response.data.name + ' is ' + response.data.weather[0].main + '.';
-            changer(whether, res)
+            result = changer(whether, res)
+            console.log("wWww ",result);
         }
     }catch(err){
         console.log(err);
@@ -79,6 +80,7 @@ app.post('/inVoice', async (req, res) => {
 
 app.get('/anything', (req, res) => {
     if(whether){
+        console.log("result ",result);
         res.json(whether);
     }else{
         res.json({msg: 'no data found !'})

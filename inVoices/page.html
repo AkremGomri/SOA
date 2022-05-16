@@ -5,7 +5,8 @@
         <title>Voice Controlled Notes App</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+        <meta http-equiv="pragma" content="no-cache" />
+
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shoelace-css/1.0.0-beta16/shoelace.css">
         <link rel="stylesheet" href="styles.css">
  
@@ -41,11 +42,9 @@
             </div>
 
             <button id="btn">get weather</button>
-
-            <audio controls>
-                <source src="../voices/Recording3.mp3" type="audio/mp3" />
-            </audio>
- 
+            <div >
+            <audio controls id="blida" preload="metadata" type="audio/mp3" />
+            </div>
         </div>
  
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
