@@ -238,9 +238,10 @@ console.log("noteContent ", noteContent);
   noteContent = "";
 
   setTimeout(()=>{
-    $('#blida').attr("src", "../voices/Recording3.mp3")
+    
+    $('#blida').html('<source  src="../voices/Recording3.mp3" type="audio/mp3" />');
     window.location = window.location.href+'?eraseCache=true';
-    $('#blida').attr("src", "../voices/Recording3.mp3")
+    $('#blida').html('<source  src="../voices/Recording3.mp3" type="audio/mp3" />');
     // window.location.reload(true);
   }, 1000)
 });
